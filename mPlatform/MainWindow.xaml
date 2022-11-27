@@ -1,0 +1,43 @@
+﻿<Window x:Class="mPlatform.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:viewModel="clr-namespace:mPlatform.MVVM.ViewModel"
+        xmlns:local="clr-namespace:mPlatform"
+        mc:Ignorable="d"
+        Title="mPlatform" Height="600" Width="920">
+    <!--Сделать Movie view + Mvoide model + ViewModel Model, забинженное на данные-->
+    <Window.DataContext>
+        <viewModel:MainViewModel/>
+    </Window.DataContext>
+    <Border Background="Purple"
+            CornerRadius="10">
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="200"/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="75"/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            <TextBlock Text="Test" VerticalAlignment="Center"  HorizontalAlignment="Center" Foreground="White" FontSize="22"/>
+            <StackPanel Grid.Column="1" Orientation="Horizontal">
+                <!--add animation-->
+                <RadioButton Content="home"  FontSize="14" Foreground="White" Style="{StaticResource MenuButtonStyle}" IsChecked="True" Command="{Binding HomeViewCommand}"/>
+                <RadioButton Content="discovery" Height="50" FontSize="14" Foreground="White" Style="{StaticResource MenuButtonStyle}" Command="{Binding DiscoveryViewCommand}"/>
+                <RadioButton Content="featured" Height="50" FontSize="14" Foreground="White" Style="{StaticResource MenuButtonStyle}" Command="{Binding MovieViewCommand}"/>
+                <TextBox Width="250" 
+                     Height="40"
+                     VerticalContentAlignment="Center"
+                     HorizontalAlignment="Left"
+                     Margin="5"
+                      Style="{StaticResource SearchTextBox}"/>
+                <Button Width="150">Войти</Button>
+            </StackPanel>
+            
+            <ContentControl Grid.Row="1" Grid.Column="1" Margin="10" Content="{Binding CurrentView}"/>
+        </Grid>
+    </Border>
+</Window>
