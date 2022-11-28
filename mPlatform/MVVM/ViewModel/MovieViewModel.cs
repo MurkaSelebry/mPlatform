@@ -4,15 +4,39 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using mPlatform.MVVM.Model;
+using mPlatform.MVVM.View;
 using mPlatform.Core;
-
+using System.Windows.Controls;
+using System.Windows;
 
 namespace mPlatform.MVVM.ViewModel
 {
     class MovieViewModel: ObservableObject
     {
-        Movie movie;
+        
 
+        private Movie movie;
+        private RelayCommand startCommand;
+        
+
+        public RelayCommand StartCommand
+        {
+            get
+            {
+                return startCommand ?? (startCommand = new RelayCommand((obj) =>
+                {
+                    MediaElement me = obj as MediaElement;
+                    me.Play();
+
+                }));
+            }
+        }
+
+        
+        public void SetMovie(HomeViewModel hvm)
+        {
+            hvm.mainViewModel.CurrentView = this;
+        }
         public MovieViewModel(Movie movie)
         {
             this.movie = movie;
@@ -26,7 +50,7 @@ namespace mPlatform.MVVM.ViewModel
                 movie.Rating = value;
                 OnPropertyChanged("Rating");
             }
-            }
+        }
 
 
     }

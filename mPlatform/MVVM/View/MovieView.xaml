@@ -5,8 +5,9 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:mPlatform.MVVM.View"
              xmlns:i="clr-namespace:mPlatform.MVVM.ViewModel"
+             xmlns:ia="http://schemas.microsoft.com/expression/2010/interactivity" d:DataContext="{d:DesignInstance Type=i:MovieViewModel}"
              mc:Ignorable="d" 
-             d:DesignHeight="450" d:DesignWidth="800">
+             d:DesignHeight="800" d:DesignWidth="800">
     <Grid>
         <ScrollViewer >
 
@@ -17,166 +18,123 @@
                    Margin="0,0,0,20"/>
                 <StackPanel Orientation="Horizontal"
                     Margin="0,0,0,10">
-                    <Border Width="300"
-                    Height="200"
-                    Background="Orange">
+                    <Border Width="200"
+                    Height="300"
+                    Background="Transparent">
                         <Border.Clip>
-                            <RectangleGeometry RadiusX="10" RadiusY="10" Rect="0,0,400,200"/>
+                            <RectangleGeometry RadiusX="10" RadiusY="10" Rect="0,0,200,300"/>
                         </Border.Clip>
                         <Grid>
                             <StackPanel>
-                                <TextBlock Text="TEST TEXT 1"
-                                   Foreground="Green"
-                                   FontSize="28"
-                                   Margin="20,10,10,0"
-                                   />
-                                <TextBlock Text="TEST TEXT 2"
-                                   Foreground="Blue"
-                                   FontSize="28"
-                                   Margin="20,10,10,0"
-                                   />
-                            </StackPanel>
-                            <Image Width="100" Height="100"
-                           Source="{Binding ImageSource}"
+                                <Image Width="200" Height="300"
+                           Source="{Binding Path=ImageSource}"
                            HorizontalAlignment="Right"
                            VerticalAlignment="Bottom"/>
-                        </Grid>
 
-                    </Border>
-                    <Border Width="200" Height="200" CornerRadius="10" Margin="45,0,0,0" Background="HotPink">
-                        <Border.Clip>
-                            <RectangleGeometry RadiusX="10" RadiusY="10" Rect="0,0,400,200"/>
-                        </Border.Clip>
-                        <Grid>
-                            <StackPanel>
-                                <TextBlock Text="TEST TEXT 1"
-                                   Foreground="Green"
-                                   FontSize="28"
-                                   Margin="20,10,10,0"
-                                   />
-                                <TextBlock Text="TEST TEXT 2"
-                                   Foreground="Blue"
-                                   FontSize="28"
-                                   Margin="20,10,10,0"
-                                   />
                             </StackPanel>
-                            <Image Width="100" Height="100"
-                           Source="/Images/1.jpg"
-                           HorizontalAlignment="Right"
-                           VerticalAlignment="Bottom"/>
                         </Grid>
                     </Border>
-                </StackPanel>
-
-                <StackPanel>
-                    <StackPanel.Resources>
-                        <Style TargetType="{x:Type Border}">
-                            <Setter Property="Margin" Value="15,0,0,0"/>
-                        </Style>
-                    </StackPanel.Resources>
-                    <TextBlock Text="Most Watched"
-                       Foreground="White"
-                       FontSize="20"
-                       HorizontalAlignment="Left"
-                       Margin="0,0,0,10"/>
-                    <StackPanel Orientation="Horizontal">
-                        <Border Width="150"
-                        Height="150"
-                        Background="BurlyWood"
-                        CornerRadius="10"/>
-                        <Border Width="150"
-                        Height="150"
-                        Background="BurlyWood"
-                        CornerRadius="10"/>
-                        <Border Width="150"
-                        Height="150"
-                        Background="BurlyWood"
-                        CornerRadius="10"/>
+                    <StackPanel>
+                        <TextBox
+                        Width="600"
+                        TextWrapping="Wrap"
+                        AcceptsReturn="True"
+                        Background="Transparent"
+                        HorizontalScrollBarVisibility="Disabled"
+                        VerticalScrollBarVisibility="Auto" 
+                            Text="{Binding Path=Title.Name}">
+                        </TextBox>
+                        <TextBox
+                        Width="600"
+                        TextWrapping="Wrap"
+                        AcceptsReturn="True"
+                        Background="Transparent"
+                        HorizontalScrollBarVisibility="Disabled"
+                        VerticalScrollBarVisibility="Auto"
+                        Text="{Binding Path=Title.ReleaseYear}"   
+                            >
+                        
+                        </TextBox>
+                        <TextBox
+                        Width="600"
+                        TextWrapping="Wrap"
+                        AcceptsReturn="True"
+                        Background="Transparent"
+                        HorizontalScrollBarVisibility="Disabled"
+                        VerticalScrollBarVisibility="Auto"
+                        Text="{Binding Path=Title.Director}"    
+                            >
+                        </TextBox>
+                        <TextBox
+                        Width="600"
+                        TextWrapping="Wrap"
+                        AcceptsReturn="True"
+                        Background="Transparent"
+                        HorizontalScrollBarVisibility="Disabled"
+                        VerticalScrollBarVisibility="Auto"
+                        Text="{Binding Path=Title.Country}"    
+                            >
+                        </TextBox>
+                        <TextBox
+                        Width="600"
+                        TextWrapping="Wrap"
+                        AcceptsReturn="True"
+                        Background="Transparent"
+                        HorizontalScrollBarVisibility="Disabled"
+                        VerticalScrollBarVisibility="Auto"
+                        Text="{Binding Path=Title.Genre}"    
+                            >
+                        </TextBox>
+                        <TextBox
+                        Width="600"
+                        TextWrapping="Wrap"
+                        AcceptsReturn="True"
+                        Background="Transparent"
+                        HorizontalScrollBarVisibility="Disabled"
+                        VerticalScrollBarVisibility="Auto"
+                            Text="{Binding Path=Rating}">
+                        </TextBox>
+                        <TextBox
+                        Width="600"
+                        TextWrapping="Wrap"
+                        AcceptsReturn="True"
+                        Background="Transparent"
+                        HorizontalScrollBarVisibility="Disabled"
+                        VerticalScrollBarVisibility="Auto"
+                            Text="{Binding Path=Title.Description}"
+                            >
+                        </TextBox>
                     </StackPanel>
-                </StackPanel>
-                <TextBlock Text="Discover"
-                   Foreground="White"
-                   HorizontalAlignment="Left"
-                   Margin="0,0,0,20"/>
-                <StackPanel Orientation="Horizontal"
-                    Margin="0,0,0,10">
-                    <Border Width="300"
-                    Height="200"
-                    Background="Orange">
-                        <Border.Clip>
-                            <RectangleGeometry RadiusX="10" RadiusY="10" Rect="0,0,400,200"/>
-                        </Border.Clip>
-                        <Grid>
-                            <StackPanel>
-                                <TextBlock Text="TEST TEXT 1"
-                                   Foreground="Green"
-                                   FontSize="28"
-                                   Margin="20,10,10,0"
-                                   />
-                                <TextBlock Text="TEST TEXT 2"
-                                   Foreground="Blue"
-                                   FontSize="28"
-                                   Margin="20,10,10,0"
-                                   />
-                            </StackPanel>
-                            <Image Width="100" Height="100"
-                           Source="/Images/1.jpg"
-                           HorizontalAlignment="Right"
-                           VerticalAlignment="Bottom"/>
-                        </Grid>
-
-                    </Border>
-                    <Border Width="200" Height="200" CornerRadius="10" Margin="45,0,0,0" Background="HotPink">
-                        <Border.Clip>
-                            <RectangleGeometry RadiusX="10" RadiusY="10" Rect="0,0,400,200"/>
-                        </Border.Clip>
-                        <Grid>
-                            <StackPanel>
-                                <TextBlock Text="TEST TEXT 1"
-                                   Foreground="Green"
-                                   FontSize="28"
-                                   Margin="20,10,10,0"
-                                   />
-                                <TextBlock Text="TEST TEXT 2"
-                                   Foreground="Blue"
-                                   FontSize="28"
-                                   Margin="20,10,10,0"
-                                   />
-                            </StackPanel>
-                            <Image Width="100" Height="100"
-                           Source="/Images/1.jpg"
-                           HorizontalAlignment="Right"
-                           VerticalAlignment="Bottom"/>
-                        </Grid>
-                    </Border>
+                    
+                    
                 </StackPanel>
 
-                <StackPanel>
-                    <StackPanel.Resources>
-                        <Style TargetType="{x:Type Border}">
-                            <Setter Property="Margin" Value="15,0,0,0"/>
-                        </Style>
-                    </StackPanel.Resources>
-                    <TextBlock Text="Most Watched"
-                       Foreground="White"
-                       FontSize="20"
-                       HorizontalAlignment="Left"
-                       Margin="0,0,0,10"/>
-                    <StackPanel Orientation="Horizontal">
-                        <Border Width="150"
-                        Height="150"
-                        Background="BurlyWood"
-                        CornerRadius="10"/>
-                        <Border Width="150"
-                        Height="150"
-                        Background="BurlyWood"
-                        CornerRadius="10"/>
-                        <Border Width="150"
-                        Height="150"
-                        Background="BurlyWood"
-                        CornerRadius="10"/>
+
+                <StackPanel Margin="5">
+                        <StackPanel.Resources>
+                            <Style TargetType="Button">
+                                <Setter Property="Margin" Value="5,5,0,5"></Setter>
+                                <Setter Property="Padding" Value="5"></Setter>
+                            </Style>
+                        </StackPanel.Resources>
+                        <StackPanel Background="Transparent">
+                            <MediaElement x:Name="mediaElement" Source="{Binding Path=Url}" HorizontalAlignment="Left" Height="325" Margin="25,10,0,0" VerticalAlignment="Top" Width="750" MediaOpened="mediaElement_MediaOpened" LoadedBehavior="Manual"/>
+                            <Slider x:Name="slider_video" Width="750" ValueChanged="slider_video_ValueChanged"/>
+                            <WrapPanel Margin="0,10,0,0">
+                                <Button x:Name="bt_play1" Width="50" Margin="50,0,0,0" Command="{Binding StartCommand}" CommandParameter="{Binding ElementName=mediaElement}">Play1</Button>
+                                <Button x:Name="bt_pause" Width="50" Margin="50,0,0,0" Click="bt_pause_Click">Pause</Button>
+                                <Button x:Name="bt_stop" Width="50" Margin="50,0,0,0" Click="bt_stop_Click">Stop</Button>
+                                <Label Content="Громкость:" FontWeight="Bold" FontSize="20" VerticalAlignment="Center" Margin="50,0,0,0"/>
+                                <Slider x:Name="slider_audio" Width="200" VerticalAlignment="Center" Value="3" ValueChanged="slider_audio_ValueChanged"/>
+                            </WrapPanel>
+
+                        </StackPanel>
+
+                        <Button Command="{Binding StartCommand}" CommandParameter="{Binding ElementName=mediaPlayer}" Content="Play"></Button>
+                        <Button Command="{Binding PauseCommand}" Content="Pause"></Button>
+                        <Button Command="{Binding StopCommand}" Content="Stop"></Button>
+
                     </StackPanel>
-                </StackPanel>
             </StackPanel>
         </ScrollViewer>
 

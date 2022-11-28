@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -14,7 +15,6 @@ namespace mPlatform.MVVM.ViewModel
         public RelayCommand MovieViewCommand{ get;set;}
         public HomeViewModel HomeVM { get; set; }
         public DiscoveryViewModel DiscoveryVM { get; set; }
-        public MovieViewModel MovieVM { get; set; }
 
         private object _currentView;
 
@@ -26,16 +26,13 @@ namespace mPlatform.MVVM.ViewModel
                 OnPropertyChanged();
             }
         }
+        
+   
         public MainViewModel()
         {
-            HomeVM = new HomeViewModel();
+            HomeVM = new HomeViewModel(this);
             DiscoveryVM = new DiscoveryViewModel();
-            MovieVM = 
-                new MovieViewModel(new Model.Movie(
-                new Model.MovieInfo("123",new DateTime(),"456","Russia",new string[] {"1","2"},"wow",10.0),
-                "/Images/2.jpg",
-                "url",
-                10.0));
+
             CurrentView = HomeVM;
             HomeViewCommand = new RelayCommand(o =>
             {
@@ -49,7 +46,7 @@ namespace mPlatform.MVVM.ViewModel
             );
             MovieViewCommand = new RelayCommand(o =>
             {
-                CurrentView = MovieVM;
+                CurrentView = HomeVM.MovieVM;
             }
             );
 
