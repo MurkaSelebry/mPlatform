@@ -31,7 +31,6 @@ namespace mPlatform.MVVM.ViewModel
         {
 
             string projectDirectory = Directory.GetParent(Environment.CurrentDirectory).Parent.FullName;
-            MessageBox.Show(projectDirectory);
             Movies = new ObservableCollection<MovieViewModel> {
                 new MovieViewModel(new Model.Movie(
                 new Model.MovieInfo("Мой домашний крокодил",new DateTime(2022,6,28),"Джош Гордон, Уилл Спек","США","мюзикл, фэнтези, комедия, приключения, семейный".Split(new char[] { ',' }),"Лайл – именно так зовут уникального в своем роде крокодила, который сильно отличается от многочисленных других представителей данного рода пресмыкающихся. " +
