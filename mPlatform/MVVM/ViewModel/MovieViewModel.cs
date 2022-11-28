@@ -17,7 +17,9 @@ namespace mPlatform.MVVM.ViewModel
 
         private Movie movie;
         private RelayCommand startCommand;
-        
+        private RelayCommand stopCommand;
+        private RelayCommand pauseCommand;
+        public MediaElement me;
 
         public RelayCommand StartCommand
         {
@@ -25,13 +27,46 @@ namespace mPlatform.MVVM.ViewModel
             {
                 return startCommand ?? (startCommand = new RelayCommand((obj) =>
                 {
-                    MediaElement me = obj as MediaElement;
+                    if (me==null)                  
+                        me = obj as MediaElement;
+                        
+                   
                     me.Play();
 
                 }));
             }
         }
+        public RelayCommand StopCommand
+        {
+            get
+            {
+                return stopCommand ?? (stopCommand = new RelayCommand((obj) =>
+                {
+                    
 
+
+                    me.Stop();
+
+                }));
+            }
+        }
+        public RelayCommand PauseCommand
+        {
+            get
+            {
+                return pauseCommand ?? (pauseCommand = new RelayCommand((obj) =>
+                {
+
+
+
+                    me.Pause();
+
+                }));
+            }
+        }
+       
+
+        
         
         public void SetMovie(HomeViewModel hvm)
         {

@@ -174,15 +174,25 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="1.jpg" />
-    <Resource Include="Images\vakanda.png" />
-  </ItemGroup>
-  <ItemGroup>
     <Resource Include="Images\black-adam.png" />
+    <Resource Include="Images\buttons\pause.png" />
+    <Resource Include="Images\buttons\play.png" />
+    <Resource Include="Images\buttons\stop.png" />
     <Resource Include="Images\crocodile.png" />
     <Resource Include="Images\front.png" />
     <Resource Include="Images\last.png" />
     <Resource Include="Images\pokerface.png" />
     <Resource Include="Images\ship.png" />
+    <Resource Include="Images\vakanda.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Images\black-adam.mp4" />
+    <Content Include="Images\crocodile.mp4" />
+    <Content Include="Images\front.mp4" />
+    <Content Include="Images\last.mp4" />
+    <Content Include="Images\pokerface.mp4" />
+    <Content Include="Images\ship.mp4" />
+    <Content Include="Images\vakanda.mp4" />
     <Content Include="Videos\1.mp4" />
     <None Include="Videos\2.mp4">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>

@@ -13,8 +13,10 @@ namespace mPlatform.MVVM.ViewModel
         public RelayCommand HomeViewCommand { get;set;}
         public RelayCommand DiscoveryViewCommand{ get;set;}
         public RelayCommand MovieViewCommand{ get;set;}
+        
+
         public HomeViewModel HomeVM { get; set; }
-        public DiscoveryViewModel DiscoveryVM { get; set; }
+        public DiscoveryViewModel FullScreenVM { get; set; }
 
         private object _currentView;
 
@@ -31,7 +33,7 @@ namespace mPlatform.MVVM.ViewModel
         public MainViewModel()
         {
             HomeVM = new HomeViewModel(this);
-            DiscoveryVM = new DiscoveryViewModel();
+            FullScreenVM = new DiscoveryViewModel(HomeVM.MovieVM);
 
             CurrentView = HomeVM;
             HomeViewCommand = new RelayCommand(o =>
@@ -41,7 +43,7 @@ namespace mPlatform.MVVM.ViewModel
             );
             DiscoveryViewCommand = new RelayCommand(o =>
             {
-                CurrentView = DiscoveryVM;
+                CurrentView = FullScreenVM;
             }
             );
             MovieViewCommand = new RelayCommand(o =>

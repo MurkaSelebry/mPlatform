@@ -11,7 +11,7 @@
     <Window.DataContext>
         <viewModel:MainViewModel/>
     </Window.DataContext>
-    <Border Background="Purple"
+    <Border Background="DarkGray"
             CornerRadius="10">
         <Grid>
             <Grid.ColumnDefinitions>
@@ -22,12 +22,12 @@
                 <RowDefinition Height="75"/>
                 <RowDefinition/>
             </Grid.RowDefinitions>
-            <TextBlock Text="Test" VerticalAlignment="Center"  HorizontalAlignment="Center" Foreground="White" FontSize="22"/>
+            <TextBlock Text="mPlatform" VerticalAlignment="Center"  HorizontalAlignment="Center" Foreground="White" FontSize="22"/>
             <StackPanel Grid.Column="1" Orientation="Horizontal">
                 <!--add animation-->
                 <RadioButton Content="home"  FontSize="14" Foreground="White" Style="{StaticResource MenuButtonStyle}" IsChecked="True" Command="{Binding HomeViewCommand}"/>
-                <RadioButton Content="discovery" Height="50" FontSize="14" Foreground="White" Style="{StaticResource MenuButtonStyle}" Command="{Binding DiscoveryViewCommand}"/>
-                <RadioButton Content="featured" Height="50" FontSize="14" Foreground="White" Style="{StaticResource MenuButtonStyle}" Command="{Binding MovieViewCommand}"/>
+                <RadioButton Content="full screen" Height="50" FontSize="14" Foreground="White" Style="{StaticResource MenuButtonStyle}" Command="{Binding DiscoveryViewCommand}"/>
+                <RadioButton Content="film" Height="50" FontSize="14" Foreground="White" Style="{StaticResource MenuButtonStyle}" Command="{Binding MovieViewCommand}"/>
                 <TextBox Width="250" 
                      Height="40"
                      VerticalContentAlignment="Center"

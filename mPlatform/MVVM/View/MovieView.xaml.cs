@@ -46,20 +46,9 @@ namespace mPlatform.MVVM.View
             slider_video.Value = mediaElement.Position.TotalSeconds;
         }
 
-        private void bt_pause_Click(object sender, RoutedEventArgs e)
-        {
-            mediaElement.Pause();
-        }
+        
 
-        private void bt_stop_Click(object sender, RoutedEventArgs e)
-        {
-            mediaElement.Stop();
-        }
-
-        private void bt_play_Click(object sender, RoutedEventArgs e)
-        {
-            mediaElement.Play();
-        }
+        
 
         private void slider_video_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
         {

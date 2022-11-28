@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using System.Windows.Threading;
 
 namespace mPlatform.MVVM.View
 {
@@ -23,6 +24,38 @@ namespace mPlatform.MVVM.View
         public DiscoveryView()
         {
             InitializeComponent();
+            DispatcherTimer dt = new DispatcherTimer();
+            dt.Tick += new EventHandler(timer_tick);
+            dt.Interval = TimeSpan.FromSeconds(1);
+            dt.Start();
+        }
+        private void timer_tick(object sender, EventArgs e)
+        {
+            slider_video.Value = mediaElement.Position.TotalSeconds;
+        }
+
+
+
+
+
+        private void slider_video_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
+        {
+            TimeSpan ts = TimeSpan.FromSeconds(e.NewValue);
+            mediaElement.Position = ts;
+        }
+
+        private void slider_audio_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
+        {
+            mediaElement.Volume = slider_audio.Value;
+        }
+
+        private void mediaElement_MediaOpened(object sender, RoutedEventArgs e)
+        {
+            if (mediaElement.NaturalDuration.HasTimeSpan)
+            {
+                TimeSpan ts = TimeSpan.FromMilliseconds(mediaElement.NaturalDuration.TimeSpan.TotalMilliseconds);
+                slider_video.Maximum = ts.TotalSeconds;
+            }
         }
     }
 }
